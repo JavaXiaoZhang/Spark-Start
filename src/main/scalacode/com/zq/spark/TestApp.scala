@@ -13,8 +13,9 @@ object TestApp {
   }
 
   def main(args: Array[String]): Unit = {
-    System.setProperty("hadoop.home.dir", "C:\\Users\\Administrator\\Downloads\\hadoop-3.3.0")
-    val logFile = "./qqwry.dat" // Should be some file on your system
+    System.setProperty("icode","A1D45B9DF9521349")
+    System.setProperty("hadoop.home.dir", "D:\\winutils-master\\hadoop-2.6.0")
+    val logFile = "./data/qqwry.dat" // Should be some file on your system
     val spark = SparkSession.builder.appName("Simple Application").master("local[2]").getOrCreate()
     val logData = spark.read.textFile(logFile).cache()
     val numAs = logData.filter(line => line.contains("a")).count()
